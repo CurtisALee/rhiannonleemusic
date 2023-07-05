@@ -1,0 +1,19 @@
+{
+  "name": "rhiannonleemusic",
+  "version": "1.0.0",
+  "description": "Yeeaah mann.",
+  "main": "index.js",
+  "scripts": {
+    "build-css": "node-sass styles/main.scss styles/main.css",
+    "watch-css": "node-sass -w styles/main.scss styles/main.css",
+    "start": "npm run watch-css & browser-sync start --server --port 3000 --files 'styles/*.css, *.html' --reload"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.29.3",
+    "node-sass": "^9.0.0"
+  }
+}
+
