@@ -7,7 +7,116 @@
   <title>Rhiannon Lee Music</title>
 </head>
 <body>
-  <h1>Title</h1>
-  <!-- Content goes here -->
+
+  <nav class="nav">
+    <a class="nav__logo">
+      R.L
+    </a>
+    <div class="nav__actions">
+      <!--<a href="#" class="nav__link">About me</a> -->
+      <a href="#" class="nav__link nav__link--social">
+        <img class="nav__social-image" src="assets/instagram.svg" alt="Follow me on Instagram!">
+        Instagram
+      </a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero__grid">
+        <div class="hero__content">
+          <p class="hero__subtitle">Coming 22.07.2023</p>
+          <h1 class="hero__title">Feels On <span>Sunday</span></h1>
+          <div class="preview-link" onclick="toggleAudio()">
+            <audio preload="metadata" controls controlslist="nodownload">
+              <source src="assets/fos-preview.mp3" type="audio/mpeg">
+            </audio>
+            <div class="play-button">Preview:<span class="duration">0:00</span></div>
+          </div>
+        </div>
+        <img src="assets/rhiannon-hero.jpg" alt="Me in a field!" class="hero__image">
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__email">
+          <h2 class="footer__title">Contact me</h2>
+          <div class="footer__email-wrapper">
+            <input type="text" value="rhiannonlee2012@gmail.com" id="email-input" readonly>
+            <div class="tooltip">
+            <button onclick="copyEmail()" onmouseout="emailCopied()" class="copy-button">
+              <span class="tooltiptext" id="tooltip">Copy to clipboard</span>
+              Copy email
+            </button>
+            </div>
+          </div>
+        </div>
+        <a href="#" class="nav__link nav__link--social nav__link--social-highlight">
+          <img class="nav__social-image" src="assets/instagram.svg" alt="Follow me on Instagram!">
+          Follow me on Instagram
+        </a>
+      </div>
+    </div>
+    <div class="footer__copyright">
+      <div class="footer__copyright--inner">
+        <p>&copy; <script>document.write(new Date().getFullYear())</script>
+          Rhiannon Lee
+        </p>
+        <p>Made in Nottingham, UK</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Add email copy button, socials - eventually download links will go after hero-->
+
+  <script>
+
+    // Thank you: https://codepen.io/Brydave/pen/QWywPwG
+
+    const audio = document.querySelector('audio');
+    const container = document.querySelector('.preview-link');
+    const audioDuration = document.querySelector('.duration');
+    const playButton = document.querySelector('.play-button');
+    let isPlaying = false;
+
+    const toggleAudio = (event) => {
+      if (isPlaying) {
+        audio.pause()
+        isPlaying = false
+        playButton.classList.remove('playing')
+      } else {
+        audio.play()
+        isPlaying = true
+        playButton.classList.add('playing')
+      }
+    }
+
+    audio.onloadedmetadata = () => {
+      let minutes = Math.floor(audio.duration / 60)
+      let seconds = Math.floor(audio.duration - minutes * 60)
+      audioDuration.innerHTML = `${minutes}:${seconds}`
+    }
+
+    // Copy email to clipboard
+
+    function copyEmail() {
+      var copyText = document.getElementById("email-input");
+      copyText.select();
+      copyText.setSelectionRange(0, 99999);
+      navigator.clipboard.writeText(copyText.value);
+      
+      var tooltip = document.getElementById("tooltip");
+      tooltip.innerHTML = "Copied! ✨";
+    }
+
+    function emailCopied() {
+      var tooltip = document.getElementById("tooltip");
+      tooltip.innerHTML = "Copy to clipboard";
+    }
+
+  </script>
 </body>
 </html>
