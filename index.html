@@ -25,10 +25,11 @@
 
   <section class="hero">
     <div class="container">
-      <div class="hero__grid">
-        <div class="hero__content">
-          <p class="hero__subtitle">Coming 22.07.2023</p>
-          <h1 class="hero__title">Feels On <span>Sunday</span></h1>
+      <div class="preview-block">
+        <img src="assets/rhiannon-hero.jpg" alt="Me in a field!" class="preview-block__image">
+        <div class="preview-block__content">
+          <h1 class="preview-block__title">Feels On Sunday</h1>
+          <p class="preview-block__subtitle">Rhiannon Lee</p>
           <div class="preview-link" onclick="toggleAudio()">
             <audio preload="metadata" controls controlslist="nodownload">
               <source src="assets/fos-preview.mp3" type="audio/mpeg">
@@ -36,7 +37,21 @@
             <div class="play-button">Preview:<span class="duration">0:00</span></div>
           </div>
         </div>
-        <img src="assets/rhiannon-hero.jpg" alt="Me in a field!" class="hero__image">
+      </div>
+    </div>
+  </section>
+
+  <section class="link-wrapper">
+    <div class="container">
+      <div class="link-list">
+        <button class="song-link song-link--copy-link">Share This Page</button>
+        <a href="https://open.spotify.com/track/4wb8Geq07uSwnnRBv09bHr?si=226acda408714359" class="song-link" target="_blank">Listen on Spotify</a>
+        <a href="https://music.apple.com/gb/album/feels-on-sunday-single/1695595408" class="song-link" target="_blank">Listen on Apple Music</a>
+        <a href="https://music.apple.com/gb/album/feels-on-sunday-single/1695595408" class="song-link">Download on iTunes</a>
+        <a href="https://music.amazon.co.uk/albums/B0CB1RPF6T?do=play&trackAsin=B0CB1QCVMX&ref=dm_sh_I9ThENiiUpnf749hFMADgkd6D" class="song-link" target="_blank">Listen on Amazon Music</a>
+        <a href="https://deezer.page.link/2Gska1oMEYSfC4Fy8" class="song-link" target="_blank">Listen on Deezer</a>
+        <a href="https://tidal.com/browse/track/302946418" class="song-link" target="_blank">Listen on Tidal</a>
+        <p href="#" class="song-link song-link--view-full-list">Full List Coming Soon</p>
       </div>
     </div>
   </section>
@@ -56,7 +71,7 @@
             </div>
           </div>
         </div>
-        <a href="https://www.instagram.com/rhiannonlee.x/?igshid=MzRlODBiNWFlZA%3D%3D" class="nav__link nav__link--social nav__link--social-highlight" target="_blank">
+        <a href="https://www.instagram.com/rhiannonlee.x/?igshid=MzRlODBiNWFlZA%3D%3D" class="nav__link nav__link--social" target="_blank">
           <img class="nav__social-image" src="assets/instagram.svg" alt="Follow me on Instagram!">
           Follow me on Instagram
         </a>
@@ -118,6 +133,27 @@
       var tooltip = document.getElementById("tooltip");
       tooltip.innerHTML = "Copy to clipboard";
     }
+
+    // Copy URL
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const button = document.querySelector('.song-link--copy-link');
+
+      button.addEventListener('click', function () {
+        const tempInput = document.createElement('input');
+        tempInput.value = window.location.href;
+
+        document.body.appendChild(tempInput);
+
+        tempInput.select();
+
+        document.execCommand('copy');
+
+        document.body.removeChild(tempInput);
+
+        alert('URL copied to clipboard: ' + window.location.href);
+      });
+    });
 
   </script>
 </body>
