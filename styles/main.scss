@@ -238,7 +238,14 @@ audio {
   }
   &__copyright--inner {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 1.6rem;
+
+    @media only screen and (min-width: 37.5rem) {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 0;
+    }
   }
 }
 
