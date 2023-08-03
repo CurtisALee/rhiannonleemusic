@@ -156,6 +156,11 @@ audio {
     font-style: italic;
     letter-spacing: 0.1rem;
     margin-bottom: 1.6rem; }
+  .featured__image {
+    width: 100%; }
+    @media only screen and (min-width: 42.5rem) {
+      .featured__image {
+        width: auto; } }
   .featured__subtext {
     display: block;
     font-size: 1.8rem;

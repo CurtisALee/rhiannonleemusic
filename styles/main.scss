@@ -200,6 +200,14 @@ audio {
     margin-bottom: 1.6rem;
   }
 
+  &__image {
+    width: 100%;
+
+    @media only screen and (min-width: 42.5rem) {
+      width: auto;
+    }
+  }
+
   &__subtext {
     display: block;
     font-size: 1.8rem;
