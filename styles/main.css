@@ -39,7 +39,9 @@ html {
   .nav__logo {
     font-size: 4.8rem;
     font-family: 'Smooch', cursive;
-    cursor: pointer; }
+    cursor: pointer;
+    color: #fff;
+    text-decoration: none; }
   .nav__actions {
     display: flex;
     align-items: center;
