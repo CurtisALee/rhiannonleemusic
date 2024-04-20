@@ -160,7 +160,12 @@ audio {
       width: 42rem; } }
 
 .featured {
-  margin-top: 3.2rem; }
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+  margin-top: 3.2rem;
+  max-width: 48rem;
+  margin: 0 auto; }
   .featured__text {
     font-size: 2rem;
     font-style: italic;
